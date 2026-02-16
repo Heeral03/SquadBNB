@@ -61,39 +61,14 @@ function App() {
   const [challengeLoading, setChallengeLoading] = useState(false);
   const [showAIGenerator, setShowAIGenerator] = useState(false);
   const [showChatbot, setShowChatbot] = useState(false);
-  
-const API_URL = (() => {
-  // Check multiple ways to detect Telegram
-  const isTelegram = (
-    // Check for Telegram WebView
-    (typeof window !== 'undefined' && window.TelegramWebview?.platform !== undefined) ||
-    // Check user agent
-    (typeof navigator !== 'undefined' && navigator.userAgent.includes('Telegram')) ||
-    // Check for Telegram in the URL
-    (typeof window !== 'undefined' && window.location.href.includes('telegram')) ||
-    // Check for Telegram in the referrer
-    (typeof document !== 'undefined' && document.referrer.includes('telegram'))
-  );
-  
-  // ALWAYS use ngrok URL when on mobile/Telegram
-  // For now, let's just use ngrok URL for everything to test
-  console.log('📱 Environment detection:', {
-    isTelegram,
-    userAgent: navigator.userAgent,
-    url: window.location.href
-  });
-  
-  // FOR TESTING: Always use ngrok URL to eliminate detection issues
-  return 'https://griffin-hierogrammatical-weakly.ngrok-free.dev';
-  
-  /* Use this once testing works:
-  if (isTelegram) {
-    return 'https://griffin-hierogrammatical-weakly.ngrok-free.dev';
-  } else {
-    return import.meta.env.VITE_API_URL || 'http://localhost:3000';
-  }
-  */
-})();
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+
+console.log('🔧 Using API_URL:', API_URL);
+console.log('📱 Environment:', {
+  VITE_API_URL: import.meta.env.VITE_API_URL,
+  NODE_ENV: import.meta.env.MODE,
+  isBrowser: typeof window !== 'undefined'
+});
 
   // Get current time for greeting
   const getGreeting = () => {
