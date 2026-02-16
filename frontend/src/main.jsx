@@ -33,11 +33,16 @@ const bscTestnet = {
 
 const projectId = import.meta.env.VITE_PROJECT_ID;
 
+// 👇 UPDATED METADATA WITH REDIRECT
 const metadata = {
   name: 'SquadBNB',
   description: 'Book Challenges on BNB Chain',
   url: window.location.origin,
-  icons: []
+  icons: [],
+  redirect: {
+    native: '',  // MetaMask handle karega
+    universal: window.location.origin  // https://squadbnb-4.onrender.com
+  }
 };
 
 const networks = [bscTestnet];
@@ -52,9 +57,9 @@ createAppKit({
   adapters: [wagmiAdapter],
   networks,
   projectId,
-  metadata,
+  metadata,  // 👈 Updated metadata yahan use ho raha hai
   features: {
-    analytics: true
+    analytics: true  // Optional: Telegram mein analytics band bhi kar sakte ho
   }
 });
 
