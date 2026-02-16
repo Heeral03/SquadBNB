@@ -46,15 +46,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Serve static files from frontend dist
 app.use(express.static(path.join(__dirname, '../frontend/dist')));
 
-// Handle React Router - IMPORTANT!
-app.get('*', (req, res, next) => {
-  // Skip API routes
-  if (req.path.startsWith('/api/') || 
-      req.path === '/health' || 
-      req.path === '/test') {
-    return next();
-  }
-  // Serve index.html for all other routes
+// Handle React Router - FIXED for local development
+app.get(/^\/(?!api|health|test).*/, (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
 });
 
