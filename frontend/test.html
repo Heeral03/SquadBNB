@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contract Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.8.0/dist/web3.min.js"></script>
+</head>
+<body>
+    <button onclick="testContract()">Test Contract</button>
+    <div id="output"></div>
+    <script>
+        async function testContract() {
+            const output = document.getElementById('output');
+            output.innerHTML = 'Connecting...';
+            
+            if (!window.ethereum) {
+                output.innerHTML = 'Please install MetaMask!';
+                return;
+            }
+            
+            try {
+                await window.ethereum.request({ method: 'eth_requestAccounts' });
+                const web3 = new Web3(window.ethereum);
+                
+                const contractAddress = '0x99EfE8B1E4bA50B8FdEA8A84D69f72711aADdB9A';
+                const abi = [{"inputs":[{"internalType":"string","name":"name","type":"string"}],"name":"createSquad","outputs":[],"stateMutability":"nonpayable","type":"function"}];
+                
+                const contract = new web3.eth.Contract(abi, contractAddress);
+                
+                output.innerHTML = 'Sending transaction...';
+                
+                const accounts = await web3.eth.getAccounts();
+                
+                contract.methods.createSquad('TestSquad').send({ from: accounts[0] })
+                    .on('transactionHash', (hash) => {
+                        output.innerHTML = `Transaction sent! Hash: ${hash}`;
+                    })
+                    .on('receipt', (receipt) => {
+                        output.innerHTML = `Success! Block: ${receipt.blockNumber}`;
+                    })
+                    .on('error', (error) => {
+                        output.innerHTML = `Error: ${error.message}`;
+                        console.error(error);
+                    });
+                    
+            } catch (error) {
+                output.innerHTML = `Error: ${error.message}`;
+                console.error(error);
+            }
+        }
+    </script>
+</body>
+</html>

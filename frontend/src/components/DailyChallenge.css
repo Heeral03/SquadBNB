@@ -1,0 +1,619 @@
+.daily-challenge {
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  border: 1px solid var(--border-primary);
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow-card);
+}
+
+/* Date Header */
+.challenge-date-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, 
+    rgba(139, 92, 246, 0.08), 
+    rgba(212, 175, 55, 0.08)
+  );
+  border-radius: 16px;
+  margin-bottom: 24px;
+  border: 1px solid var(--border-secondary);
+}
+
+.date-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.current-date {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+}
+
+.date-icon {
+  font-size: 18px;
+}
+
+.current-time {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+}
+
+.time-icon {
+  font-size: 16px;
+}
+
+.next-challenge-timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, var(--purple-magic), var(--purple-glow));
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+}
+
+.timer-label {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.timer-value {
+  font-size: 16px;
+  font-weight: 800;
+  color: white;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  letter-spacing: 0.02em;
+}
+
+.refresh-challenge-btn {
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid var(--border-primary);
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  flex-shrink: 0;
+}
+
+.refresh-challenge-btn:hover {
+  background: var(--purple-magic);
+  transform: rotate(180deg);
+  box-shadow: 0 0 16px rgba(139, 92, 246, 0.4);
+}
+
+.refresh-icon {
+  font-size: 20px;
+  transition: transform 0.5s ease;
+}
+
+/* Challenge Header */
+.challenge-header-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-secondary);
+}
+
+.challenge-icon-wrapper {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.3), transparent);
+  border-radius: 50%;
+  animation: pulse 2s ease infinite;
+}
+
+.challenge-icon {
+  font-size: 36px;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.4));
+}
+
+.challenge-header-content {
+  flex: 1;
+}
+
+.challenge-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  margin: 0 0 4px 0;
+  background: linear-gradient(135deg, var(--gold-accent), var(--purple-magic));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.challenge-subtitle {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin: 0;
+  font-style: italic;
+}
+
+/* Challenge Form */
+.challenge-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Upload Section */
+.upload-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.upload-label,
+.quote-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+}
+
+.label-icon {
+  font-size: 20px;
+}
+
+.upload-zone {
+  border: 2px dashed var(--border-primary);
+  border-radius: 20px;
+  padding: 48px 24px;
+  text-align: center;
+  background: linear-gradient(135deg, 
+    rgba(139, 92, 246, 0.02), 
+    rgba(212, 175, 55, 0.02)
+  );
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.upload-zone::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.08), transparent);
+  opacity: 0;
+  transition: var(--transition-smooth);
+}
+
+.upload-zone:hover::before {
+  opacity: 1;
+  animation: rotate 8s linear infinite;
+}
+
+.upload-zone:hover {
+  border-color: var(--gold-accent);
+  background: linear-gradient(135deg, 
+    rgba(139, 92, 246, 0.05), 
+    rgba(212, 175, 55, 0.05)
+  );
+  box-shadow: var(--glow-gold);
+  transform: translateY(-2px);
+}
+
+.upload-icon-large {
+  font-size: 56px;
+  margin-bottom: 16px;
+  animation: bounce 2s ease infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.upload-text {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.upload-hint {
+  font-size: 13px;
+  color: var(--text-tertiary);
+  font-style: italic;
+}
+
+/* Photo Preview */
+.photo-preview-container {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 3px solid var(--gold-accent);
+  box-shadow: var(--glow-gold);
+  transition: var(--transition-smooth);
+}
+
+.photo-preview-container:hover {
+  transform: scale(1.01);
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+}
+
+.photo-preview {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+.preview-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, 
+    rgba(0, 0, 0, 0.7) 0%, 
+    transparent 30%, 
+    transparent 70%, 
+    rgba(0, 0, 0, 0.7) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: var(--transition-smooth);
+}
+
+.photo-preview-container:hover .preview-overlay {
+  opacity: 1;
+}
+
+.change-photo-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--ink-black);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.change-photo-btn:hover {
+  background: var(--gold-accent);
+  color: white;
+  transform: scale(1.05);
+}
+
+.btn-icon {
+  font-size: 16px;
+}
+
+/* Quote Section */
+.quote-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.quote-input-wrapper {
+  position: relative;
+  padding: 20px 24px;
+  background: linear-gradient(135deg, 
+    rgba(139, 92, 246, 0.03), 
+    rgba(212, 175, 55, 0.03)
+  );
+  border-radius: 20px;
+  border: 1px solid var(--border-secondary);
+}
+
+.quote-decoration {
+  position: absolute;
+  font-size: 48px;
+  color: var(--gold-accent);
+  opacity: 0.2;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  pointer-events: none;
+  line-height: 1;
+}
+
+.quote-decoration-top {
+  top: 8px;
+  left: 12px;
+}
+
+.quote-decoration-bottom {
+  bottom: 8px;
+  right: 12px;
+}
+
+.quote-textarea {
+  width: 100%;
+  min-height: 120px;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-size: 16px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  font-style: italic;
+  line-height: 1.8;
+  resize: vertical;
+  outline: none;
+  position: relative;
+  z-index: 1;
+  padding: 20px 12px;
+}
+
+.quote-textarea::placeholder {
+  color: var(--text-tertiary);
+  font-style: italic;
+}
+
+.character-count {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  gap: 4px;
+  font-size: 13px;
+  color: var(--text-tertiary);
+  font-weight: 600;
+}
+
+.character-count span:first-child {
+  color: var(--text-secondary);
+}
+
+.count-warning {
+  color: var(--ruby-red) !important;
+}
+
+.count-separator {
+  opacity: 0.5;
+}
+
+.count-max {
+  opacity: 0.7;
+}
+
+/* Submit Button */
+.submit-challenge-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 16px 32px;
+  background: linear-gradient(135deg, var(--purple-magic), var(--purple-glow));
+  color: white;
+  border: none;
+  border-radius: 16px;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.submit-challenge-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.submit-challenge-btn:hover:not(:disabled)::before {
+  width: 300px;
+  height: 300px;
+}
+
+.submit-challenge-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(139, 92, 246, 0.6);
+}
+
+.submit-challenge-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.submit-challenge-btn .btn-icon {
+  font-size: 20px;
+  z-index: 1;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  z-index: 1;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Challenge Tips */
+.challenge-tips {
+  display: flex;
+  gap: 12px;
+  padding: 16px;
+  background: linear-gradient(135deg, 
+    rgba(16, 185, 129, 0.05), 
+    rgba(212, 175, 55, 0.05)
+  );
+  border-radius: 16px;
+  border: 1px dashed var(--border-primary);
+}
+
+.tip-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.tip-content {
+  flex: 1;
+}
+
+.tip-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+}
+
+.tip-list {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.tip-list li {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 4px;
+}
+
+.tip-list li:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .daily-challenge {
+    padding: 20px 16px;
+  }
+  
+  .challenge-date-header {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 16px;
+    gap: 12px;
+  }
+  
+  .date-info {
+    align-items: center;
+    text-align: center;
+  }
+  
+  .current-date {
+    font-size: 14px;
+  }
+  
+  .current-time {
+    font-size: 12px;
+  }
+  
+  .next-challenge-timer {
+    width: 100%;
+  }
+  
+  .refresh-challenge-btn {
+    width: 100%;
+    height: 36px;
+  }
+  
+  .challenge-header-section {
+    gap: 12px;
+  }
+  
+  .challenge-icon-wrapper {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .challenge-icon {
+    font-size: 30px;
+  }
+  
+  .challenge-title {
+    font-size: 22px;
+  }
+  
+  .upload-zone {
+    padding: 40px 20px;
+  }
+  
+  .upload-icon-large {
+    font-size: 48px;
+  }
+  
+  .quote-textarea {
+    font-size: 15px;
+    min-height: 100px;
+  }
+  
+  .submit-challenge-btn {
+    padding: 14px 24px;
+    font-size: 14px;
+  }
+  
+  .challenge-tips {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
