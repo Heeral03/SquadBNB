@@ -2,7 +2,13 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+
+
+
+
 const bodyParser = require('body-parser');
+const path = require('path'); 
+
 
 // No MongoDB import!
 const { challengeService } = require('./services/DailyChallengeService');
@@ -35,6 +41,22 @@ app.use(cors({
 
 app.use(bodyParser.json({ limit: '10mb' }));
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// ============ SERVE FRONTEND STATIC FILES ============
+// Serve static files from frontend dist
+app.use(express.static(path.join(__dirname, '../frontend/dist')));
+
+// Handle React Router - IMPORTANT!
+app.get('*', (req, res, next) => {
+  // Skip API routes
+  if (req.path.startsWith('/api/') || 
+      req.path === '/health' || 
+      req.path === '/test') {
+    return next();
+  }
+  // Serve index.html for all other routes
+  res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
+});
 
 // ============ FIX 2: REQUEST LOGGING MIDDLEWARE ============
 app.use((req, res, next) => {
