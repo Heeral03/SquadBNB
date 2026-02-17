@@ -1,21 +1,44 @@
 {
-  "projectName": "<Your Project Name>",
+  "projectName": "SquadBNB",
   "network": "BSC Testnet",
   "contracts": [
     {
-      "name": "ExampleToken",
-      "address": "0x123...",
-      "explorerLink": "https://testnet.bscscan.com/address/...",
-      "description": "Governance token"
+      "name": " SQUAD_MANAGER_ADDRESS",
+      "address": "0xf12542ac678e7C6b65E14e9f8C122B7a49Bd0950",
+      "explorerLink": "https://testnet.bscscan.com/address/0xf12542ac678e7C6b65E14e9f8C122B7a49Bd0950",
+      "description": "Core contract handling squad creation, joining/leaving, submissions, and verification. Stores squad membership and user profiles."
     },
     {
-      "name": "ExampleVault",
-      "address": "0xabc...",
-      "explorerLink": "https://testnet.bscscan.com/address/...",
-      "description": "Staking vault"
-    }
+      "name": "BADGES_CONTRACT_ADDRESS",
+      "address": "0x5Fb509c6bEdf3a5dB0c63ac8E0f44dd79998D2Bf",
+      "explorerLink": "https://testnet.bscscan.com/address/0x5Fb509c6bEdf3a5dB0c63ac8E0f44dd79998D2Bf",
+      "description": "ERC-721 NFT contract for achievement badges. Mints badges when users reach milestones (first submission, verified reviewer, streak holder, etc.).
+"
+    },
+    {
+      "name": "CHALLENGE_MANAGER_ADDRESS",
+      "address": "0x9215fA79167a6f956498fBe052E4146CbC8914c6",
+      "explorerLink": "https://testnet.bscscan.com/address/0x9215fA79167a6f956498fBe052E4146CbC8914c6",
+      "description": "Manages challenge lifecycle—creation, activation, and expiration. Coordinates between daily and monthly challenges. Stores challenge metadata and participant records."
+    },
+    {
+      "name": "DAILY_CHALLENGE_ADDRESS",
+      "address": "0xc2dae969149a8715dD4021149b38dBF99Fd91AE0",
+      "explorerLink": "https://testnet.bscscan.com/address/0xc2dae969149a8715dD4021149b38dBF99Fd91AE0",
+      "description": "Handles daily challenge submissions, reward distribution, and streak tracking. Users submit one entry per day; verified submissions earn points and contribute to monthly leaderboar"
+    },
+    {
+      "name": "MONTHLY_CHALLENGE_ADDRESS",
+      "address": "0x229a96e1920486a0a3b644f6C27C3D72084b1964",
+      "explorerLink": "https://testnet.bscscan.com/address/0x229a96e1920486a0a3b644f6C27C3D72084b1964",
+      "description": "Manages monthly book selection, voting, and prize pool distribution. Readers propose books, community votes, and winners share BNB rewards based on participation and review quality."
+    },
+
+
+
   ],
-  "frontendUrl": "https://...",
-  "backendApi": "https://...",
-  "notes": "Any special instructions for interacting with the contracts."
+  "frontendUrl": "https://squadbnb-4.onrender.com",
+  "backendApi": "https://squadbnb-4.onrender.com",
+  "Telegram Bot": "@SquadBnb_bot"
 }
+
