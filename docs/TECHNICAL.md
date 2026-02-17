@@ -372,4 +372,72 @@ flowchart TD
     X --> Y[View Badges & Streaks]
 ```
 
+---
+
+### 4. Tech Stack
+
+**Frontend Stack**
+| Technology       | Version | Purpose        | Key Features                                     |
+| ---------------- | ------- | -------------- | ------------------------------------------------ |
+| React            | 18.2.0  | UI Framework   | Component-based architecture, hooks, virtual DOM |
+| Vite             | 5.0.0   | Build Tool     | Fast HMR, optimized builds, plugin ecosystem     |
+| React Router DOM | 7.13.0  | Navigation     | Client-side routing, nested routes, loaders      |
+| React Hot Toast  | 2.6.0   | Notifications  | Toast messages, promise handling, custom styling |
+| Date-fns         | 4.1.0   | Date Utilities | Date formatting, manipulation, localization      |
+| Axios            | 1.13.5  | HTTP Client    | API requests, interceptors, error handling       |
+| CSS3             | -       | Styling        | Flexbox, grid, animations, responsive design     |
+
+---
+
+**Web3 & Wallet Stack**
+| Technology   | Version | Purpose                  | Key Features                                              |
+| ------------ | ------- | ------------------------ | --------------------------------------------------------- |
+| Wagmi        | 2.0+    | React Hooks for Ethereum | useAccount, useContractRead, useContractWrite             |
+| Viem         | 2.0+    | Ethereum Client          | Type-safe, lightweight, modular                           |
+| Reown AppKit | 1.8.18  | Wallet Connection        | MetaMask integration, multi-chain support                 |
+| Ethers.js    | 6.16.0  | Blockchain Interaction   | Contract deployment, transaction signing, event listening |
+
+---
+
+**Backend Stack**
+| Technology  | Version | Purpose         | Key Features                                 |
+| ----------- | ------- | --------------- | -------------------------------------------- |
+| Node.js     | 18.x    | Runtime         | Non-blocking I/O, event-driven architecture  |
+| Express     | 4.18.0  | Web Framework   | REST API routing, middleware, error handling |
+| Body-parser | Latest  | Request Parsing | JSON parsing, URL-encoded data               |
+| CORS        | Latest  | Security        | Cross-Origin Resource Sharing configuration  |
+| dotenv      | 17.3.1  | Configuration   | Environment variable management              |
+
+---
+
+**AI & Machine Learning Stack**
+| Technology     | Version | Purpose            | Key Features                               |
+| -------------- | ------- | ------------------ | ------------------------------------------ |
+| Groq Cloud     | Latest  | AI Inference       | 500+ tokens/sec inference speed            |
+| Llama 3.1 8B   | -       | Language Model     | 8B parameters, context window 8K           |
+| Custom Prompts | -       | Prompt Engineering | Intent classification, response formatting |
+
+---
+
+**Blockchain & Smart Contract Stack**
+| Technology   | Version     | Purpose                 | Key Features                           |
+| ------------ | ----------- | ----------------------- | -------------------------------------- |
+| Solidity     | 0.8.20      | Smart Contract Language | Type-safe, inheritance, modifiers      |
+| BNB Chain    | Chain ID 97 | Layer 1 Blockchain      | Low gas fees (~$0.03), 3s block time   |
+| Foundry      |             | Development Environment | Testing, debugging, deployment scripts |
+| OpenZeppelin |       | Contract Libraries      | ERC-721, Ownable, ReentrancyGuard      |
+
+---
+
+**Storage Stack**
+| Technology        | Purpose                   | Storage Type  | Cost           |
+| ----------------- | ------------------------- | ------------- | -------------- |
+| Pinata            | IPFS Pinning Service      | Decentralized | Free tier: 1GB |
+| IPFS              | Content-addressed storage | Decentralized | Free           |
+| JSON File Storage | Squad categories          | Local file    | Free           |
+
+
+
+
+
 
